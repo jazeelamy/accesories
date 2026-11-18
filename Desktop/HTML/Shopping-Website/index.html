@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+        
+    <!--SIGNUP SECTION-->
+
+    <section id="signup" class="auth-section">
+        <div class="auth-card">
+            <h1>GOLDEN <span>STORE</span></h1>
+            <h3> CREATE ACCOUNT </h3>
+            <p>Join our Shopping experience</p>
+
+            <form id="signupForm">
+                <input type="text" id="username"
+                class="form-control mb-3"
+                placeholder="Username" required>
+
+                <input type="email" id="signupEmail"
+                class="form-control mb-3"
+                placeholder="Email" required>
+
+                <input type="password" id="signupPassword"
+                class="form-control mb-3"
+                placeholder="Password" required minlength="6">
+
+                <button class="btn gold-btn w-100" type="submit">Sign up</button>
+            </form>
+
+            <p class="mt-3">
+                Already have an account?
+                <a href="#" id="goLogin">Login</a>
+            </p>
+        </div>
+    </section>
+
+
+        <!--LOGIN SECTION-->
+
+    <section id="login" class="auth-section" hidden>
+        <div class="auth-card">
+            <h1>GOLDEN <span>STORE</span></h1>
+            <h3>Welcome Back!</h3>
+            <p>Login to continue Shopping</p>
+
+            <form id="loginForm">
+                <input type="email" id="loginEmail"
+                class="form-control mb-3"
+                placeholder="Email Address" required>
+
+                <input type="password" id="loginPassword"
+                class="form-control mb-3"
+                placeholder="Password" required>
+
+                <button class="btn gold-btn w-100" type="submit">Login </button>
+            </form>
+
+            <p class="mt-3">
+                Don't have an account?
+                <a href="#" id="goSignup">Sign Up</a>
+            </p>
+
+            <p id="message" class="mt-2"></p>
+        </div>
+    </section>  
+
+    <!-----PRODUCT SECTION-->
+
+    <section id="products" hidden>
+
+    <!--NAVBAR SECTION-->
+
+    <p class="text-warning fs-4 fw-bold mt-3 mb-3 ms-3" id="welcomeUser"></p>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning px-3 px-lg-5 py-3">
+
+        <a class="navbar-brand fw-bold fs-4" href="#">
+            GOLDEN <span class="text-warning">STORE</span>
+        </a>
+
+        <button class="btn btn-outline-warning ms-auto" id="cartBtn">Cart(<span id="cartCount">0</span>)
+        </button>
+
+    </nav>
+
+    <!--HERO SECTION-->
+    
+    <div class="bg-dark text-white py-5">
+        <div class="container py-3">
+            <div class="row align-items-center g-4">
+
+                <div class="col-lg-7 text-center text-lg-start">
+                    <p class="text-warning fw-bold small">
+                    THE PREMIUM GADGET COLLECTION
+                    </p>
+
+                    <h1 class="display-4 fw-bold">
+                        Upgrade Your
+                        <span class="text-warning">Everyday 
+                        </span>
+                    </h1>
+
+                    <p class="lead text-secondary my-4">
+                        Discover wireless audio,smart accessories and gaming essentials at prices you'll love.
+                    </p>
+
+                    <button class="btn btn-warning btn-lg fw-bold" id="shopNow">
+                       Explore Collection 
+                    </button>
+                </div>
+
+                <div class="col-lg-5 text-center">
+                    <img src="https://placehold.co/500x350/202020/D4AF37?text=Premium+Gadgets"
+                    alt="Premium gadjets Collection"
+                    class="img-fluid rounded-4 border border-warning">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--PRODUCT COLLECTION-->
+    
+    <div class="container py-5" id="collection">
+
+        <div class="text-center mb-4">
+
+            <p class="text-warning fw-bold small">
+                CURATED FOR YOU
+            </p>
+
+            <h2 class="fw-bold">Explore Our Collections</h2>
+
+            <p class="text-secondary">
+                Find the perfect gadget for your Lifestyle.
+            </p>
+        </div>
+
+    <!--SEARCH BAR-->
+
+        <div class="row justify-content-center mb-4">
+
+            <div class="col-12 col-md-8 col-lg-6">
+
+                <div class="input-group input-group-lg">
+
+                <span class="input-group-text bg-dark text-warning border-secondary">
+                Search
+                </span>
+
+                <input type="search"
+                 id="productSearch"
+                class="form-control bg-dark text-white border-secondary"
+                placeholder="Search.."
+                aria-label="Search Products">
+
+                <button class="btn btn-warning"
+                id="clearSearch"
+                type="button">
+                Clear
+                </button>
+
+                </div>
+            </div>
+        </div>
+    
+
+    <!--CATEGORY FILTERS-->
+
+    <div id="categoryFilters"
+     class="d-flex flex-wrap justify-content-center gap-2 mb-5">
+
+        <button class="btn btn-outline-warning category-btn active"
+            data-category="all">All Products
+        </button>
+
+        <button class="btn btn-outline-warning category-btn"
+         data-category="audio">Audio
+        </button>
+
+        <button class="btn btn-outline-warning category-btn"
+        data-category="accessories">Accessories
+        </button>
+
+        <button class="btn btn-outline-warning category-btn"
+        data-category="gaming">Gaming
+        </button>
+
+    </div>
+
+    <!--NOT FOUND-->
+
+    <div id="noResults" class="text-center py-5" hidden>
+
+        <h4>No Products found!</h4>
+
+        <p class="text-secondary">
+            Try another category.
+        </p>
+    </div>
+
+
+    <!-----PRODUCTS---->
+
+    <div class="row g-4" id="productGrid">
+      
+        <!---PRODUCT 1--->
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+            <div class="card product-card h-100 bg-dark text-white border-secondary" data-category="audio">
+
+                <img src="Earphones.jpg" class="card-img-top" alt="Wired Earphones">
+
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Wired Earphones</h5>
+
+                    <p class="card-text text-secondary">
+                        Clear sound and deep bass.
+                    </p>
+
+                    <h5 class="text-warning">Rs.499</h5>
+
+                    <button class="btn btn-warning w-100 mt-auto add-cart" data-name="Wired Earphones" data-price="499">Add to Cart. 
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!---PRODUCT 2--->
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+            <div class="card product-card h-100 bg-dark text-white border-secondary" data-category="audio">
+
+                <img src="earbuds.jpg" class="card-img-top" alt="Wireless Earbuds">
+
+                <div class="card-body d-flex flex-column">
+
+                    <h5 class="card-title">Wireless Earbuds</h5>
+
+                    <p class="card-text text-secondary">
+                        Compact wireless listening.
+                    </p>
+
+                    <h5 class="text-warning">Rs.1,499</h5>
+
+                    <button class="btn btn-warning w-100 mt-auto add-cart" data-name="Wireless Earbuds" data-price="1499">Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <!---PRODUCT 3-->
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+            <div class="card product-card h-100 bg-dark text-white border-secondary" data-category="audio">
+
+                <img src="Bluetoothspeaker.jpg" class="card-img-top" alt="Bluetooth speaker">
+
+                <div class="card-body d-flex flex-column">
+
+                    <h5 class="card-title">Bluetooth Speakers</h5>
+
+                    <p class="card-text text-secondary">
+                        Portable sound for every occasion.
+                    </p>
+
+                    <h5 class="text-warning">Rs.1,999</h5>
+
+                    <button class="btn btn-warning w-100 mt-auto add-cart" data-name="Bluetooth Speaker" data-price="1999">Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!---PRODUCT 4--->
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+            <div class="card product-card h-100 bg-dark text-white border-secondary" data-category="audio">
+
+                <img src="headphone.jpg" class="card-img-top" alt="Wireless headphones">
+
+                <div class="card-body d-flex flex-column">
+
+                    <h5 class="card-title">Wireless Headphones</h5>
+
+                    <p class="card-text text-secondary">
+                        Comfortable over-ear design.
+                    </p>
+
+                    <h5 class="text-warning">Rs.2,499</h5>
+
+                    <button class="btn btn-warning w-100 mt-auto add-cart" data-name="Wireless Headphones" data-price="2499">Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!---PRODUCT 5--->
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+            <div class="card product-card h-100 bg-dark text-white border-secondary" data-category="accessories">
+
+                <img src="smartwatch.jpg" class="card-img-top" alt="Smartwatch">
+
+                <div class="card-body d-flex flex-column">
+
+                    <h5 class="card-title">Smartwatch</h5>
+
+                    <p class="card-text text-secondary">
+                        Track your fitness and stay connected.
+                    </p>
+
+                    <h5 class="text-warning">Rs.2,999</h5>
+
+                    <button class="btn btn-warning w-100 mt-auto add-cart" data-name="Smartwatch" data-price="2999">Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!---PRODUCT 6--->
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+            <div class="card product-card h-100 bg-dark text-white border-secondary" data-category="accessories">
+
+                <img src="powerbank.jpg" class="card-img-top" alt="Power bank">
+
+                <div class="card-body d-flex flex-column">
+
+                    <h5 class="card-title">Power Bank</h5>
+
+                    <p class="card-text text-secondary">
+                        Portable charging anywhere.
+                    </p>
+
+                    <h5 class="text-warning">Rs.999</h5>
+
+                    <button class="btn btn-warning w-100 mt-auto add-cart" data-name="Power Bank" data-price="999">Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!---PRODUCT 7--->
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+            <div class="card product-card h-100 bg-dark text-white border-secondary" data-category="accessories">
+
+                <img src="fastcharger.jpg" class="card-img-top" alt="Fast-charger">
+
+                <div class="card-body d-flex flex-column">
+
+                    <h5 class="card-title">Fast Charger</h5>
+
+                    <p class="card-text text-secondary">
+                        Quick and convenient charging
+                    </p>
+
+                    <h5 class="text-warning">Rs.699</h5>
+
+                    <button class="btn btn-warning w-100 mt-auto add-cart" data-name="Fast Charger" data-price="699">Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!---PRODUCT 8--->
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+            <div class="card product-card h-100 bg-dark text-white border-secondary" data-category="accessories">
+
+                <img src="usbcable.jpg" class="card-img-top" alt="USB cable">
+
+                <div class="card-body d-flex flex-column">
+
+                    <h5 class="card-title">USB Cable</h5>
+
+                    <p class="card-text text-secondary">
+                        Durable everyday charging cable.
+                    </p>
+
+                    <h5 class="text-warning">Rs.299</h5>
+
+                    <button class="btn btn-warning w-100 mt-auto add-cart" data-name="USB Cable" data-price="299">
+                    Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!---PRODUCT 9--->
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+            <div class="card product-card h-100 bg-dark text-white border-secondary" data-category="accessories">
+
+                <img src="wirelesskeyboard.jpg" class="card-img-top" alt="Wireless keyboard">
+
+                <div class="card-body d-flex flex-column">
+
+                    <h5 class="card-title">Wireless Keyboard</h5>
+
+                    <p class="card-text text-secondary">
+                        Smooth typing for work and play.
+                    </p>
+
+                    <h5 class="text-warning">Rs.1,299</h5>
+
+                    <button class="btn btn-warning w-100 mt-auto add-cart" data-name="Wireless Keyboard" data-price="1299"> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <!---PRODUCT 10--->
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+            <div class="card product-card h-100 bg-dark text-white border-secondary" data-category="accessories">
+
+                <img src="mouse.jpg" class="card-img-top" alt="Wireless Mouse">
+
+                <div class="card-body d-flex flex-column">
+
+                    <h5 class="card-title">Wireless Mouse</h5>
+
+                    <p class="card-text text-secondary">
+                        Precise and comfortable control.
+                    </p>
+
+                    <h5 class="text-warning">Rs.799</h5>
+
+                    <button class="btn btn-warning w-100 mt-auto add-cart" data-name="Wireless Mouse" data-price="799"> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!---PRODUCT 11-->
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+            <div class="card product-card h-100 bg-dark text-white border-secondary" data-category="accessories">
+
+                <img src="phonestand.jpg" class="card-img-top" alt="Phone Stand">
+
+                <div class="card-body d-flex flex-column">
+
+                    <h5 class="card-title">Phone Stand</h5>
+
+                    <p class="card-text text-secondary">
+                        Convenient hands-free viewing.
+                    </p>
+
+                    <h5 class="text-warning">Rs.399</h5>
+
+                    <button class="btn btn-warning w-100 mt-auto add-cart" data-name="Phone Stand" data-price="399"> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!---PRODUCT 12-->
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+            <div class="card product-card h-100 bg-dark text-white border-secondary" data-category="gaming">
+
+                <img src="gamingcontroller.jpg" class="card-img-top" alt="Gaming Controller">
+
+                <div class="card-body d-flex flex-column">
+
+                    <h5 class="card-title">Gaming Controller</h5>
+
+                    <p class="card-text text-secondary">
+                        Level up your gaming sessions
+                    </p>
+
+                    <h5 class="text-warning">Rs.1,799</h5>
+
+                    <button class="btn btn-warning w-100 mt-auto add-cart" data-name="Gaming Controller" data-price="1799">Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!---SHOPPING CART-->
+
+<section id="cart" class="container py-5" hidden>
+    <h2 class="text-warning mb-4">Your Shopping Cart</h2>
+
+    <!--added to cart-->
+    <div id="cartItems" class="mb-4"></div>
+
+    <!--Total Amount-->
+    <div class="card bg-dark text-whit border-warning p-3">
+        <h4>
+            Total: Rs. <span id="cartTotal">0</span>
+        </h4>
+        <button id="checkoutBtn" class="btn btn-warning mt-3">Proceed to Checkout</button>
+
+        <button id="backToProducts" class="btn btn-outline-warning mt-2">Continue Shopping</button>
+    </div>
+</section>
+
+<!--SHIPPING INFORMATION-->
+<section id="shipping" class="container py-5" hidden>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card bg-dark text-white border-warning p-4">
+                <h2 class="text-warning text-center mb-4">
+                    Shipping Details
+                </h2>
+                <p class="text-secondary text-center">
+                    Enter your delivery information
+                </p>
+                <form id="shippingForm">
+                    <label class="form-label">Full name</label>
+                    <input type="text" id="shipName" class="form-control mb-3"
+                    placeholder="Enter your name" required>
+
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" id="shipPhone" class="form-control mb-3"
+                    placeholder="Enter your phone number" required>
+
+                    <label class="form-label">Address</label>
+                    <textarea id="shipAddress" class="form-control mb-3" placeholder="Enter your address" required></textarea>
+
+                    <label class="form-label">City</label>
+                    <input type="text" id="shipCity" class="form-control mb-3" placeholder="Enter your city" required>  
+
+                    <label class="form-label">PIN Code</label>
+                    <input type="text" id="shipPIN" class="form-control mb-3" placeholder="Enter your PIN code" pattern="[0-9]{6}" required>
+
+                    <button type="submit" class="btn btn-warning w-100 mt-3">Place Order</button>
+
+                </form>
+
+                <button id="backToCart" class="btn btn-outline-warningmt-2">Back to Cart</button>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+   <!--ORDER CONFIRMATION-->
+
+    <section id="confirmation" class="container py-5 text-center" hidden>
+        <div class="card bg-dark text-white border-warning p-5">
+                      <h1 class="text-warning mb-4">Order Confirmed!</h1>
+                      <h4 class="text-secondary">Thank you for your purchase. Your order has been placed successfully.</h4>
+                      <h5 class="mt-4">Order Summary</h5>
+                      <div id="orderSummary" class="my-3"></div>
+                      <h4 class="text-warning">Total Amount: Rs. <span id="finalTotal">0</span></h4>
+                      <button id="continueShopping" class="btn btn-warning mt-4">Continue Shopping</button>
+                 </div>
+                </div>
+        </div>
+
+        
+    <script>
+
+        let signup=document.getElementById("signup");
+        let login=document.getElementById("login");
+
+        let signupForm=document.getElementById("signupForm");
+        console.log("Signup Form:",signupForm);
+
+        let loginForm=document.getElementById("loginForm");
+
+        let goLogin=document.getElementById("goLogin");
+        let goSignup=document.getElementById("goSignup");
+        
+        let savedEmail = "";
+        let savedPassword = "";
+        let savedUsername = "";
+        
+
+
+        // Switch to login 
+
+        goLogin.addEventListener("click",function(event) {
+            event.preventDefault();
+
+            signup.hidden = true;
+            login.hidden = false;
+        });
+
+
+        //Switch to Sign Up
+
+        goSignup.addEventListener("click",function(event){
+            event.preventDefault();
+
+            login.hidden = true;
+            signup.hidden = false;
+        })
+
+
+        //Sign up
+
+        signupForm.addEventListener("submit", function(event) {
+            console.log("Signup button clicked");
+            event.preventDefault();
+            
+            savedUsername = document.getElementById("username").value;
+            savedEmail = document.getElementById("signupEmail").value;
+            savedPassword = document.getElementById("signupPassword").value;
+            alert("Sign Up successfull! Please Login.");
+
+            signup.hidden = true;
+            login.hidden = false;
+
+            document.getElementById("loginEmail").value = savedEmail;
+        })
+
+
+        //Login
+
+        loginForm.addEventListener("submit",function(event) {
+            event.preventDefault();
+
+            let email = document.getElementById("loginEmail").value;
+            let password = document.getElementById("loginPassword").value;
+
+            if(email === savedEmail && password === savedPassword) {
+                alert("Login Successfull");
+
+                login.hidden = true;
+                products.hidden = false;
+
+                document.getElementById("welcomeUser").textContent =
+                "Welcome " + savedUsername + " !";
+
+            } else {
+                document.getElementById("message").textContent = "Invalid email or password. Please signup first.";
+            }
+        })   
+
+
+        //Product Search & Category Filters
+
+        let productSearch = document.getElementById("productSearch");
+        let categoryButtons = document.querySelectorAll(".category-btn");
+        let productCards = document.querySelectorAll(".product-card");
+        let noResults = document.getElementById("noResults");
+        let clearSearch = document.getElementById("clearSearch");
+        let selectedCategory = "all";   
+
+
+        //Filter 
+         
+        function filterProducts() {
+            let searchTerm = productSearch.value.toLowerCase();
+            let hasResults = false;
+
+            productCards.forEach(function(card) {
+                let productName = card.querySelector(".card-title").textContent.toLowerCase();
+                let productCategory = card.dataset.category;
+
+                if ((selectedCategory === "all" || selectedCategory === productCategory) &&
+                    (productName.includes(searchTerm))) {
+                    card.style.display = "block";
+                    hasResults = true;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            noResults.hidden = hasResults;
+        }  
+            productSearch.addEventListener("input",function(){
+                filterProducts();
+            });
+
+            categoryButtons.forEach(function(btn) {
+                btn.addEventListener("click",function() {
+                    selectedCategory = btn.dataset.category;
+                    categoryButtons.forEach(function(button) {
+                        button.classList.remove("active","btn-warning");
+                        button.classList.add("btn-outline-warning");
+                    });
+                    btn.classList.add("active","btn-warning");
+                    btn.classList.remove("btn-outline-warning");
+                    filterProducts();
+                });
+            });
+       
+        //Clear Search
+
+        clearSearch.addEventListener("click",function(){
+            productSearch.value = "";
+            selectedCategory = "all";
+            categoryButtons.forEach(function(btn){
+                btn.classList.remove("active","btn-warning");
+                btn.classList.add("btn-outline-warning");
+            });
+            categoryButtons[0].classList.add("active","btn-warning");
+            categoryButtons[0].classList.remove("btn-outline-warning");
+            filterProducts();
+        });
+
+
+        //Scroll
+
+        let shopNow = document.getElementById("shopNow");
+        let collection = document.getElementById("collection");
+        document.getElementById("shopNow").addEventListener("click",function(){
+            collection.scrollIntoView({behavior:"smooth"});
+        });
+
+
+        //Shopping cart
+
+        let cart = [];
+        let cartBtn = document.getElementById("cartBtn");
+        let cartCount = document.getElementById("cartCount");
+        let cartItems = document.getElementById("cartItems");
+        let cartTotal = document.getElementById("cartTotal");
+        let products = document.getElementById("products");
+        let cartSection = document.getElementById("cart");
+        
+
+        //Add Products
+
+        let addCartButtons = document.querySelectorAll(".add-cart");
+        addCartButtons.forEach(function(button){    
+            button.addEventListener("click",function(){
+                let productName = button.dataset.name;
+                let productPrice = Number(button.dataset.price);
+
+                let existingItem = cart.find(function(item){
+                    return item.name === productName;
+                });
+
+                if(existingItem){
+                    existingItem.quantity++;
+                } else {
+                    cart.push({name: productName, price: productPrice, quantity: 1});
+                }
+
+                updateCart();
+                alert(productName + " added to cart.");
+        });
+    }) ;
+
+        //Update Cart
+
+        function updateCart(){
+            cartItems.innerHTML = "";
+            let total = 0;
+            let count = 0;
+            cart.forEach(function(item,index){
+                let itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                count += item.quantity;
+                
+                cartItems.innerHTML += `
+                    <div class="card bg-dark text-white border-secondary p-3 mb-3">
+                        <h5>${item.name}</h5>
+                        <p>Price: Rs. ${item.price}</p>
+                        <p>Quantity: ${item.quantity}</p>
+                        <p>Total: Rs. ${itemTotal}</p>
+                        <button class="btn btn-danger btn-sm" onclick="removeItem(${index})">Remove</button>
+                    </div>
+                `;
+            });
+            cartCount.textContent = count;
+            cartTotal.textContent = total;
+        }
+
+        //Remove Item
+
+        function removeItem(index){
+            cart.splice(index,1);
+            updateCart();
+        }
+
+        //open Cart
+        cartBtn.addEventListener("click",function(){
+            products.hidden = true;
+            cartSection.hidden = false;
+            updateCart();
+        });
+
+        //Back to Products
+        document.getElementById("backToProducts").addEventListener("click",function(){
+            cartSection.hidden = true;
+            products.hidden = false;
+        });
+
+        //Checkout
+        let shipping = document.getElementById("shipping");
+        document.getElementById("checkoutBtn").addEventListener("click", function () {
+            if (cart.length === 0) {
+                alert("Your cart is empty.");
+                return;
+            }
+
+            cartSection.hidden = true;
+            shipping.hidden = false;
+        });
+
+        //Back to Cart
+        document.getElementById("backToCart").addEventListener("click", function () {
+            shipping.hidden = true;
+            cartSection.hidden = false;
+        });
+
+        //Place Order
+        let shippingForm = document.getElementById("shippingForm");
+        shippingForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let customerName = document.getElementById("shipName").value;
+            let confirmation = document.getElementById("confirmation");
+            let orderSummary = document.getElementById("orderSummary");
+            let finalTotal = document.getElementById("finalTotal");
+            let total=0;
+
+            orderSummary.innerHTML = `<h5>Customer Name: ${customerName}</h5>`;
+            cart.forEach(function (item) {
+                let subtotal = item.price * item.quantity;
+                total += subtotal;
+                orderSummary.innerHTML += `<p>${item.name} - Quantity: ${item.quantity} - Total: Rs. ${subtotal}</p>`;
+            });
+
+            finalTotal.textContent = total;
+            shipping.hidden = true;
+            confirmation.hidden = false;
+            cart = [];
+            updateCart();
+            shippingForm.reset();
+        });
+
+        //Continue Shopping
+        document.getElementById("continueShopping").addEventListener("click", function () {
+            confirmation.hidden = true;
+            products.hidden = false;
+        });
+
+
+ </script>
+</body>
+</html>

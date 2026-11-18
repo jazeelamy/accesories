@@ -1,0 +1,93 @@
+body {
+    background: #0d0d0d;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+.auth-section {
+     min-height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding:20px;
+}
+
+.auth-card {
+    background: #1a1a1a;
+    border:1px solid #d4af37;
+    border-radius:15px;
+    padding: 35px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 0 20px #d4af3725;
+}
+
+.auth-card h1{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.auth-card h1 span,
+.auth-card a{
+     color:#d4af37;
+}
+
+.auth-card h3{
+    color:#d4af37;
+}
+
+.auth-card p{
+    color:#bbbbbb;
+}
+
+.auth-card .form-control{
+    background: #292929;
+    color:white;
+    border:1px solid #555;
+    padding:12px;
+}
+
+.auth-card .form-control::placeholder {
+    color:#aaaaaa;
+}
+
+.auth-card .form-control:focus{
+    border-color:#d4af37;
+    box-shadow: 0 0 5px #d4af37;
+}
+
+.gold-btn {
+    background:#d4af37;
+    color:#111;
+    font-weight:bold;
+    padding:12px;
+}
+
+.gold-btn:hover {
+    background:#f0cf62;
+    color:#111;
+}
+
+.product-card img{
+height:190px;
+object-fit:cover;
+}
+
+.product-card{
+    transition:0.2s;
+}
+
+.product-card hover{
+    transform:translateY(-5px);
+    border-color:#ffc107 !important;
+}
+
+#productSearch:focus {
+    background-color:#212529;
+    color:white;
+    border-color:#ffc107;
+    box-shadow: none;
+}
